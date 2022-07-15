@@ -1,0 +1,47 @@
+plugins {
+    id 'org.springframework.boot' version '2.6.3'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+}
+
+group = 'uz.fido_biznes'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '16'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+//    implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
+//    implementation 'org.springframework.boot:spring-boot-starter-data-jpa:2.6.3'
+    implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation group: 'com.google.code.gson', name: 'gson', version: '2.7'
+    implementation 'org.springframework.boot:spring-boot-starter-webflux:2.6.3'
+    implementation 'org.springframework.boot:spring-boot-starter-quartz:2.6.3'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-webflux', version: '2.7.1'
+    implementation 'com.oracle.ojdbc:orai18n:19.3.0.0'
+    implementation 'com.oracle.database.jdbc:ojdbc8:21.5.0.0'  //oldin runtimeOnly edi
+    //implementation group: 'org.springframework.data', name: 'spring-data-elasticsearch', version: '4.4.1'
+    implementation group: 'org.springframework.boot', name: 'spring-boot-configuration-processor', version: '2.7.1'
+    implementation group: 'org.json', name: 'json', version: '20220320'
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+    //annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools:2.6.3'
+    implementation 'org.apache.commons:commons-pool2:2.10.0'
+
+}
+
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
